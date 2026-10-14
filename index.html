@@ -3,9 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Painel</title>
+    <title>Painel de Controle Pro</title>
+    <!-- Tailwind CSS para um design moderno rápido -->
+    <script src="https://jsdelivr.net"></script>
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com"></script>
+    <!-- Biblioteca de Gráficos Chart.js -->
+    <script src="https://jsdelivr.net"></script>
 </head>
-<body>
-    <h1>🎉 Meu Painel está online e funcionando com sucesso!</h1>
-</body>
-</html>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased dark:bg-slate-900 dark:text-slate-100 transition-colors duration-200">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- MENU LATERAL (SIDEBAR) -->
+        <aside class="w-64 bg-white border-r border-slate-200 dark:bg-slate-800 dark:border-slate-700 hidden md:flex flex-col">
+            <div class="p-6 border-b border-slate-200 dark:border-slate-700 flex items-center gap-3">
+                <div class="p-2 bg-indigo-600 rounded-lg text-white">
+                    <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+                </div>
+                <span class="font-bold text-lg tracking-wider text-indigo-600 dark:text-indigo-400">ADMIN PRO</span>
+            </div>
+            <nav class="flex-1 p-4 space-y-1">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-indigo-50 text-indigo-600 rounded-lg font-medium dark:bg-indigo-900/50 dark:text-indigo-400">
+                    <i data-lucide="home" class="w-5 h-5"></i> Dashboard
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-slate-600 rounded-lg font-medium hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-700/50 dark:hover:text-slate-100">
+                    <i data-lucide="users" class="w-5 h-5"></i> Usuários
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-slate-600 rounded-lg font-medium hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-700/50 dark:hover:text-slate-100">
+                    <i data-lucide="bar-chart-3" class="w-5 h-5"></i> Relatórios
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-slate-600 rounded-lg font-medium hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-700/50 dark:hover:text-slate-100">
+                    <i data-lucide="settings" class="w-5 h-5"></i> Configurações
+                </a>
+            </nav>
+            <div class="p-4 border-t border-slate-200 dark:border-slate-700">
+                <div class="flex items-center gap-3 p-2">
+                    <div class="w-10 h-10 rounded-full bg-slate-300 dark:bg-slate-600 flex items-center justify-center font-bold text-slate-700 dark:text-slate-200">
+                        TV
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold">Tucovini</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Admin Geral</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="flex-1 flex flex-col overflow-y-auto bg-slate-50 dark:bg-slate-900">
+            
+            <!-- BARRA DE TOPO (HEADER) -->
+            <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-6 sticky top-0 z-10 dark:bg-slate-800 dark:border-slate-700">
+                <div class="flex items-center gap-4">
+                    <button class="md:hidden text-slate-600 dark:text-slate-300">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <h1 class="text-xl font-bold tracking-tight">Visão Geral</h1>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full text-slate-600 dark:text-slate-300">
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                    <button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full text-slate-600 dark:text-slate-300 relative">
+                        <i data-lucide="bell" class="w-5 h-5"></i>
+                        <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- DASHBOARD INNER BODY -->
+            <div class="p-6 space-y-6 max-w-[1600px] w-full mx-auto">
+                
+                <!-- CARDS DE MÉTRICAS -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between dark:bg-slate-800 dark:border-slate-700">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Faturamento Mensal</p>
+                            <h3 class="text-2xl font-bold mt-1">R$ 24.500</h3>
+                            <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded dark:bg-emerald-950/50 dark:text-emerald-400 inline-block mt-2">+12% vs mês passado</span>
+                        </div>
+                        <div class="p-4 bg-indigo-50 text-indigo-600 rounded-xl dark:bg-indigo-950/50 dark:text-indigo-400">
+                            <i data-lucide="dollar-sign" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between dark:bg-slate-800 dark:border-slate-700">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Novos Clientes</p>
+                            <h3 class="text-2xl font-bold mt-1">342</h3>
+                            <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded dark:bg-emerald-950/50 dark:text-emerald-400 inline-block mt-2">+8% esta semana</span>
+                        </div>
+                        <div class="p-4 bg-emerald-50 text-emerald-600 rounded-xl dark:bg-emerald-950/50 dark:text-emerald-400">
+                            <i data-lucide="users-2" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between dark:bg-slate-800 dark:border-slate-700">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Taxa de Conversão</p>
+                            <h3 class="text-2xl font-bold mt-1">4.2%</h3>
+                            <span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded dark:bg-amber-950/50 dark:text-amber-400 inline-block mt-2">-0.5% hoje</span>
+                        </div>
+                        <div class="p-4 bg-amber-50 text-amber-600 rounded-xl dark:bg-amber-950/50 dark:text-amber-400">
+                            <i data-lucide="trending-up" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between dark:bg-slate-800 dark:border-slate-700">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Alertas Ativos</p>
+                            <h3 class="text-2xl font-bold mt-1">2</h3>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded dark:bg-slate-700 dark:text-slate-300 inline-block mt-2">Dentro do esperado</span>
+                        </div>
+                        <div class="p-4 bg-rose-50 text-rose-600 rounded-xl dark:bg-rose-950/50 dark:text-rose-400">
+                            <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRÁFICO E TABELA -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Bloco do Gráfico -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm lg:col-span-2 dark:bg-slate-800 dark:border-slate-700">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold">Desempenho de Vendas</h3>
+                            <span class="text-xs text-slate-500">Últimos 6 meses</span>
+                        </div>
+                        <div class="h-64">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Atividades Recentes -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm dark:bg-slate-800 dark:border-slate-700">
+                        <h3 class="text-lg font-bold mb-4">Últimas Atividades</h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-3">
+                                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 mt-1.5 shrink-0"></div>
+                                <div>
+                                    <p class="text-sm font-medium">Novo usuário cadastrado</p>
